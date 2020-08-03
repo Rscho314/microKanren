@@ -1,4 +1,6 @@
-(load "microKanren-test-programs.scm")
+#lang racket
+
+(require "microKanren-test-programs.rkt")
 
 (test-check "second-set t1"
   (let (($ ((call/fresh (lambda (q) (== q 5))) empty-state)))

@@ -1,5 +1,10 @@
+#lang racket
 
 ;;;; How to make a simple miniKanren (substitution only)
+
+(require "microKanren.rkt")
+(provide (all-defined-out)
+         (all-from-out "microKanren.rkt"))
 
 (define-syntax Zzz
   (syntax-rules ()
@@ -99,7 +104,7 @@
        (let* ((expected expected-result)
               (produced tested-expression))
          (or (equal? expected produced)
-             (errorf 'test-check
+             (error 'test-check
                "Failed: ~a~%Expected: ~a~%Computed: ~a~%"
                'tested-expression expected produced)))))))
 
